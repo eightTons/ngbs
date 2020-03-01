@@ -74,21 +74,21 @@
             <version>${org.mybatis.version}</version>
         </dependency>
 
-        //AOP
+        <!--AOP-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>1.6.11</version>
         </dependency>
 
-        //json序列化和反序列化
+        <!--json序列化和反序列化-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.12</version>
         </dependency>
 
-        //连接池
+        <!--连接池-->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -96,7 +96,7 @@
             <!--<scope>runtime</scope>-->
         </dependency>
 
-        //日志
+        <!--日志-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -201,6 +201,7 @@
             <artifactId>jsqlparser</artifactId>
             <version>0.9.4</version>
         </dependency>
+
 
     </dependencies>
 
