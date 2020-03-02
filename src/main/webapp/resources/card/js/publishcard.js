@@ -141,106 +141,106 @@ $(document).ready(function () {
 function showPhoto(name, firstcoord) {
     switch (name) {
         case "丽泽湖":
-            $('#buildingImg').attr("src", "public/card/images/wildboar.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/wildboar.jpg")
             break;
         case "体育馆":
-            $('#buildingImg').attr("src", "public/card/images/gym.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/gym.jpg")
             break;
 
         case "元白楼":
-            $('#buildingImg').attr("src", "public/card/images/yuanbai.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/yuanbai.jpg")
             break;
 
         case "游泳池":
-            $('#buildingImg').attr("src", "public/card/images/swimmingpool.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/swimmingpool.jpg")
             break;
 
         case "文华苑":
-            $('#buildingImg').attr("src", "public/card/images/wenhua.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/wenhua.jpg")
             break;
 
         case "木铎楼":
-            $('#buildingImg').attr("src", "public/card/images/muduo.gif")
+            $('#buildingImg').attr("src", "../resources/card/images/muduo.gif")
             break;
 
         case "励耘楼":
-            $('#buildingImg').attr("src", "public/card/images/liyun.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/liyun.jpg")
             break;
 
         case "京华苑":
-            $('#buildingImg').attr("src", "public/card/images/jinghua.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/jinghua.jpg")
             break;
 
         case "图书馆":
-            $('#buildingImg').attr("src", "public/card/images/library.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/library.jpg")
             break;
         case "海华苑":
             // console.log(firstcoord)
             if (firstcoord == 476) {
-                $('#buildingImg').attr("src", "public/card/images/haihua.jpg")
+                $('#buildingImg').attr("src", "../resources/card/images/haihua.jpg")
             } else {
-                $('#buildingImg').attr("src", "public/card/images/haihua2.jpg")
+                $('#buildingImg').attr("src", "../resources/card/images/haihua2.jpg")
             }
             break;
 
         case "弘文楼":
-            $('#buildingImg').attr("src", "public/card/images/hongwen.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/hongwen.jpg")
             break;
 
         case "金声楼":
-            $('#buildingImg').attr("src", "public/card/images/jinsheng.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/jinsheng.jpg")
             break;
 
         case "丽泽楼":
-            $('#buildingImg').attr("src", "public/card/images/lize.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/lize.jpg")
             break;
 
         case "学一食堂":
-            $('#buildingImg').attr("src", "public/card/images/xueyi.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/xueyi.jpg")
             break;
 
         case "学二食堂":
-            $('#buildingImg').attr("src", "public/card/images/xueer.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/xueer.jpg")
             break;
 
         case "学三食堂":
-            $('#buildingImg').attr("src", "public/card/images/xuesan.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/xuesan.jpg")
             break;
 
         case "田径场":
-            $('#buildingImg').attr("src", "public/card/images/tianjingchang.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/tianjingchang.jpg")
             break;
 
         case "燕华苑":
-            $('#buildingImg').attr("src", "public/card/images/yanhua.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/yanhua.jpg")
             break;
 
         case "会同街":
-            $('#buildingImg').attr("src", "public/card/images/huitong.gif")
+            $('#buildingImg').attr("src", "../resources/card/images/huitong.gif")
             break;
 
         case "励教楼":
-            $('#buildingImg').attr("src", "public/card/images/lijiao.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/lijiao.jpg")
             break;
 
         case "南曦园":
-            $('#buildingImg').attr("src", "public/card/images/nanxi.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/nanxi.jpg")
             break;
 
         case "京师家园":
-            $('#buildingImg').attr("src", "public/card/images/jingshi.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/jingshi.jpg")
             break;
 
         case "乐育楼":
-            $('#buildingImg').attr("src", "public/card/images/leyu.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/leyu.jpg")
             break;
 
         case "粤华苑":
-            $('#buildingImg').attr("src", "public/card/images/yuehua.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/yuehua.jpg")
             break;
 
         case "国交足球场":
-            $('#buildingImg').attr("src", "public/card/images/guojiaozuqiuchang.jpg")
+            $('#buildingImg').attr("src", "../resources/card/images/guojiaozuqiuchang.jpg")
             break;
     }
 }
