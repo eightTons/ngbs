@@ -1,7 +1,9 @@
 package com.ngbs.service.impl;
 
+import com.ngbs.common.ResponseCode;
 import com.ngbs.common.ServerResponse;
 import com.ngbs.dao.CardMapper;
+import com.ngbs.pojo.Card;
 import com.ngbs.service.ICardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,17 @@ public class CardServiceImpl implements ICardService {
 
 
 
-//    public ServerResponse add()
+    public ServerResponse add(Integer userId, Card card){
+        if(card.getCardContact() == null || "".equals(card.getCardContact())){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        }
+        card.setUserId(userId);
+        int rowCount = cardMapper.insertSelective(card);
+        if(rowCount > 0){
+            return ServerResponse.createBySuccessMessage("发布校卡成功");
+        }
+
+        return ServerResponse.createByErrorMessage("发布校卡失败");
+    }
 
 }
