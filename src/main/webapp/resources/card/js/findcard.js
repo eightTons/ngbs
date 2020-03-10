@@ -1,4 +1,4 @@
-var pageNum = 4;
+var pageNum = 1;
 var searchSchoolText = [];
 var searchLocationText = [];
 
@@ -217,19 +217,21 @@ $(document).ready(function () {
 });
 
 function getMsg(num) {
+    console.log(typeof(searchSchoolText));
     console.log("searchSchoolText:" + searchSchoolText)
     console.log("searchLocationText:" + searchLocationText)
-    console.log("seachText:" + $('#search').val())
+    console.log("searchText:" + $('#search').val())
     $.ajax({
-        url: '/getcardlist',
+        url: '/card/list',
         type: 'GET',
         data: {
             search: $('#search').val(),
-            searchSchool: searchSchoolText,
-            searchLocation: searchLocationText
+            searchSchool: JSON.stringify(searchSchoolText).replace(/\[|]/g,'').replace(/\"/g, ''),
+            searchLocation: JSON.stringify(searchLocationText).replace(/\[|]/g,'').replace(/\"/g, '')
         },
         dataType: 'json',
         success: function (data) {
+            data = data.data;
             // console.log(data.list);
             // console.log(typeof(data.list))
             //1.计算分页数量
@@ -254,9 +256,9 @@ function getMsg(num) {
                             // newElement += "<span style='cursor:pointer' data-toggle='modal'  class='detailCard' id=card" + data.list[i].id + ">" +
                             var newElement = "<a href='/detailcard?id=" + data.list[i].id + "' data-toggle='modal' data-target='#detailModal'>" +
                                 "<div class='list-group-item' name='xh" + data.list[i].stu_no + "'>" +
-                                data.list[i].stu_no + "<span style='float:right'>" + getDate('mm-dd', data.list[i].publish_time * 1000) + "发布</span><br>" +
-                                data.list[i].stu_name + "<br>" +
-                                data.list[i].stu_school + "<img src='../resources/card/icon/inspect.png' class='inspect' /><span style='float: right;font-size: larger'>" + data.list[i].lost_location + "</span><br>" +
+                                data.list[i].cardNo + "<span style='float:right'>" + getDate('mm-dd', data.list[i].cardTime) + "发布</span><br>" +
+                                data.list[i].cardName + "<br>" +
+                                data.list[i].cardSchool + "<img src='../resources/card/icon/inspect.png' class='inspect' /><span style='float: right;font-size: larger'>" + data.list[i].cardLocation + "</span><br>" +
                                 "</div></a>";
 
                             // $('.detailCard').click(function () {

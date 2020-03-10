@@ -36,8 +36,8 @@ public class UserController {
             session.setAttribute(Const.CURRENT_USER, response.getData());
         }
 
-//        return "redirect:/publishcard";
-        return "/publishcard";
+        return "redirect:/card/publishcard";
+//        return "/publishcard";
 
     }
 
