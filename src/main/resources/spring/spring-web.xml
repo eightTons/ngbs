@@ -28,28 +28,5 @@
 
     <context:component-scan base-package="com.ngbs.controller"/>
 
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/shopadmin/**" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/shoplist" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/getshoplist" />-->
-            <!--<bean id="ShopInterceptor" class="com.imooc.o2o.interceptor.shop.ShopLoginInterceptor" />-->
-        <!--</mvc:interceptor>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/shopadmin/**" />-->
-            <!--&lt;!&ndash; shoplist page &ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/shopadmin/shoplist" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/getshoplist" />-->
-            <!--&lt;!&ndash;  page &ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/shopadmin/getshopinitinfo" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/registershop" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/shopoperation" />-->
-            <!--&lt;!&ndash; shopmanage page &ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/shopadmin/shopmanagement" />-->
-            <!--<mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo" />-->
-            <!--<bean id="ShopPermissionInterceptor"-->
-                  <!--class="com.imooc.o2o.interceptor.shop.ShopPermissionInterceptor" />-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
 
 </beans>

@@ -71,10 +71,6 @@ public class CardController {
             }
         }
 
-//        PageInfo pageInfo = new PageInfo();
-//        return ServerResponse.createBySuccess(pageInfo);
-
-
 
         return iCardService.getCardByKeywordAndSchoolAndLocation(search, schoolList, locationList, pageNum, pageSize);
     }
