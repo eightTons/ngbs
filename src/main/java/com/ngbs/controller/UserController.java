@@ -31,7 +31,7 @@ public class UserController {
 
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@RequestParam(value = "userno") Integer userno,
+    public ServerResponse<User> login(@RequestParam(value = "userno") Integer userno,
                         @RequestParam(value = "password") String password,
                         HttpSession session,
                         HttpServletResponse httpServletResponse) {
@@ -44,9 +44,10 @@ public class UserController {
             RedisPoolUtil.setEx(session.getId(), JsonUtil.obj2String(response.getData()), Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
         }
 
-        return "redirect:/card/publishcard";
+//        return "redirect:/card/publishcard";
 //        return "/publishcard";
 
+        return response;
     }
 
 }
