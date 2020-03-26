@@ -5,5 +5,7 @@ import com.ngbs.pojo.User;
 
 public interface IUserService {
 
-    ServerResponse<User> login(Integer userno, String password);
+    ServerResponse<User> login(String userno, String password);
+
+    public ServerResponse<String> register(User user);
 }

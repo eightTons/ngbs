@@ -40,6 +40,11 @@
 
                 <div class="col-md-9 column" style="padding: 0px;">
 
+                    <!---------------------------------------------------------------------------------------------------------->
+                    <div id="head"></div>
+                    <!---------------------------------------------------------------------------------------------------------->
+
+
                     <div class="w clearfix mt10">
                         <div class="store_distribution_map w mb15">
                             <div class="img_area" style="overflow-x:scroll;">
@@ -125,7 +130,8 @@
                         <div class="widget" style=";margin: 0 auto;width: 100%;height: 98%">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane centre active" id="centre">
-                                    <form class="form-horizontal" action="/card/add.do" method="post" onsubmit="return checkForm()"
+                                    <form class="form-horizontal" action="/card/add.do" method="post"
+                                          onsubmit="return checkForm()"
                                           role="form" style="margin: 20px;font-size: 18px;">
                                         <div class="form-group">
                                             <label for="stuno" class="col-sm-3 control-label">学号</label>
@@ -156,7 +162,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="selectTime" class="col-sm-3 control-label" style="padding-top: 0px"><img
+                                            <label for="selectTime" class="col-sm-3 control-label"
+                                                   style="padding-top: 0px"><img
                                                     src="../resources/card/icon/date.png"></label>
                                             <div class="col-sm-8">
                                                 <input name="cardTime" class="flatpickr form-control pick"
@@ -199,39 +206,9 @@
 
     </div>
 </div>
-<div class="modal fade user-select modal-style" id="loginModal" tabindex="-1" role="dialog"
-     aria-labelledby="loginModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form action="#" method="post">
-                <div class="modal-header" style="text-align: center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="loginModalLabel">登录小北</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="username">学号</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名"
-                               autofocus
-                               maxlength="15" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">密码</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码"
-                               maxlength="18" autocomplete="off" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary " id="login_btn">登录</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 </body>
+<script src="../resources/common/js/head.js"/>
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript"></script>
 <script src="../resources/card/js/jq.js"></script>
