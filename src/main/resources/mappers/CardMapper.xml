@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ngbs.dao.CardMapper" >
+  <resultMap id="BaseResultMap" type="com.ngbs.pojo.Card" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="card_no" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="card_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_school" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_location" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="card_contact" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, card_no, card_name, card_school, card_location, card_time, card_contact, user_id, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ngbs_card
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ngbs_card
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ngbs.pojo.Card" >
+    insert into ngbs_card (id, card_no, card_name, 
+      card_school, card_location, card_time, 
+      card_contact, user_id, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{cardNo,jdbcType=INTEGER}, #{cardName,jdbcType=VARCHAR}, 
+      #{cardSchool,jdbcType=VARCHAR}, #{cardLocation,jdbcType=VARCHAR}, #{cardTime,jdbcType=TIMESTAMP}, 
+      #{cardContact,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, now(), now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.ngbs.pojo.Card" >
+    insert into ngbs_card
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardNo != null" >
+        card_no,
+      </if>
+      <if test="cardName != null" >
+        card_name,
+      </if>
+      <if test="cardSchool != null" >
+        card_school,
+      </if>
+      <if test="cardLocation != null" >
+        card_location,
+      </if>
+      <if test="cardTime != null" >
+        card_time,
+      </if>
+      <if test="cardContact != null" >
+        card_contact,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime == null" >
+        create_time,
+      </if>
+      <if test="updateTime == null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=INTEGER},
+      </if>
+      <if test="cardName != null" >
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSchool != null" >
+        #{cardSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="cardLocation != null" >
+        #{cardLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="cardTime != null" >
+        #{cardTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardContact != null" >
+        #{cardContact,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime == null" >
+        now(),
+      </if>
+      <if test="updateTime == null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ngbs.pojo.Card" >
+    update ngbs_card
+    <set >
+      <if test="cardNo != null" >
+        card_no = #{cardNo,jdbcType=INTEGER},
+      </if>
+      <if test="cardName != null" >
+        card_name = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSchool != null" >
+        card_school = #{cardSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="cardLocation != null" >
+        card_location = #{cardLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="cardTime != null" >
+        card_time = #{cardTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardContact != null" >
+        card_contact = #{cardContact,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ngbs.pojo.Card" >
+    update ngbs_card
+    set card_no = #{cardNo,jdbcType=INTEGER},
+      card_name = #{cardName,jdbcType=VARCHAR},
+      card_school = #{cardSchool,jdbcType=VARCHAR},
+      card_location = #{cardLocation,jdbcType=VARCHAR},
+      card_time = #{cardTime,jdbcType=TIMESTAMP},
+      card_contact = #{cardContact,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByKeywordAndSchoolAndLocation" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List" />
+    from ngbs_card
+    <where>
+      <if test="keyword != null">
+        or (card_no like #{keyword} or card_name like #{keyword} or card_location like #{keyword})
+      </if>
+      <if test="schoolList != null">
+        or card_school in
+        <foreach item="item" index="index" open="(" separator="," close=")" collection="schoolList">
+          #{item}
+        </foreach>
+      </if>
+      <if test="locationList != null">
+        or card_location in
+        <foreach item="item" index="index" open="(" separator="," close=")" collection="locationList">
+          #{item}
+        </foreach>
+      </if>
+    </where>
+
+  </select>
+
+
+</mapper>
