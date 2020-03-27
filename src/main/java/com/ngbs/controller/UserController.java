@@ -50,7 +50,7 @@ public class UserController {
 //            session.setAttribute(Const.CURRENT_USER, response.getData());
 
             CookieUtil.writeLoginToken(httpServletResponse, session.getId());
-            RedisShardedPoolUtil.setEx(session.getId(), JsonUtil.obj2String(response.getData()), Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
+            RedisPoolUtil.setEx(session.getId(), JsonUtil.obj2String(response.getData()), Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
         }
 
         return "redirect:/card/publishcard";
@@ -84,7 +84,7 @@ public class UserController {
     public String longout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         CookieUtil.delLoginToken(httpServletRequest, httpServletResponse);
-        RedisShardedPoolUtil.del(loginToken);
+        RedisPoolUtil.del(loginToken);
 
         return "redirect:/user/login";
     }

@@ -1,4 +1,4 @@
-var pageNum = 1;
+var pageNum = 5;
 var searchSchoolText = [];
 var searchLocationText = [];
 

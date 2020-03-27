@@ -1,22 +1,21 @@
 package com.ngbs.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.Page;
+
 import com.github.pagehelper.PageInfo;
-import com.ngbs.common.Const;
 import com.ngbs.common.ResponseCode;
 import com.ngbs.common.ServerResponse;
 import com.ngbs.pojo.Card;
 import com.ngbs.pojo.User;
 import com.ngbs.service.ICardService;
-import jdk.nashorn.internal.parser.JSONParser;
+import com.ngbs.util.CookieUtil;
+import com.ngbs.util.JsonUtil;
+import com.ngbs.util.RedisPoolUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +39,18 @@ public class CardController {
 
     @RequestMapping(value = "add.do", method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse add(HttpSession session, Card card) {
-        User user = (User) session.getAttribute(Const.CURRENT_USER);
+    public ServerResponse add(HttpServletRequest httpServletRequest, Card card) {
+        String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+        if(StringUtils.isEmpty(loginToken)){
+            return ServerResponse.createByErrorMessage("用户未登录，无法获取当前用户的信息");
+        }
+        String userJsonStr = RedisPoolUtil.get(loginToken);
+        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
         }
+
         return iCardService.add(user.getId(), card);
     }
 
