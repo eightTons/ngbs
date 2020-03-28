@@ -236,6 +236,7 @@ function getMsg(num) {
             // console.log(typeof(data.list))
             //1.计算分页数量
             var showNum = num;
+            console.log(data.list)
             var dataL = data.list.length;
             var pageNum = Math.ceil(dataL / showNum);
             $('.Pagination').pagination(pageNum, {

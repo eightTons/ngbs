@@ -42,6 +42,7 @@ public class CardServiceImpl implements ICardService {
             keyword = new StringBuilder().append("%").append(keyword).append("%").toString();
         }
         List<Card> cardList = cardMapper.selectByKeywordAndSchoolAndLocation(StringUtils.isBlank(keyword)?null:keyword, schoolList.size()==0?null:schoolList, locationList.size()==0?null:locationList);
+        pageSize = cardList.size();
         PageHelper.startPage(pageNum, pageSize);
         PageInfo pageInfo = new PageInfo(cardList);
 
