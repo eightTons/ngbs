@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/user/")
@@ -63,7 +64,7 @@ public class UserController {
     public String register(@RequestParam(value = "username") String username,
                            @RequestParam(value = "first_password") String firstPassword,
                            @RequestParam(value = "second_password") String secondPassword,
-                           HttpSession httpSession, HttpServletResponse httpServletResponse){
+                           HttpSession httpSession, HttpServletResponse httpServletResponse) throws IOException {
 
         if(!firstPassword.equals(secondPassword)){
             return "redirect:/user/register";

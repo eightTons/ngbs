@@ -227,7 +227,7 @@ function getMsg(num) {
         data: {
             search: $('#search').val(),
             searchSchool: JSON.stringify(searchSchoolText).replace(/\[|]/g,'').replace(/\"/g, ''),
-            searchLocation: JSON.stringify(searchLocationText).replace(/\[|]/g,'').replace(/\"/g, '')
+            searchLocation: JSON.stringify(searchLocationText).replace(/\[|]/g,'').replace(/\"/g, ''),
         },
         dataType: 'json',
         success: function (data) {
@@ -236,8 +236,7 @@ function getMsg(num) {
             // console.log(typeof(data.list))
             //1.计算分页数量
             var showNum = num;
-            console.log(data.list)
-            var dataL = data.list.length;
+            var dataL = data.total;
             var pageNum = Math.ceil(dataL / showNum);
             $('.Pagination').pagination(pageNum, {
                 num_edge_entries: 1, //边缘页数
