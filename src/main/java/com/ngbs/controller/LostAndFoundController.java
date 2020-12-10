@@ -53,7 +53,8 @@ public class LostAndFoundController {
 
     @RequestMapping(value = "select.do", method = RequestMethod.GET)
     @ResponseBody
-    public ServerResponse select(HttpServletRequest httpServletRequest, String keyword,
+    public ServerResponse select(HttpServletRequest httpServletRequest,
+                                 @RequestParam(value = "keyword", defaultValue = "") String keyword,
                                  @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
                                  @RequestParam(value = "pageSize", defaultValue = "5") int pageSize) {
 

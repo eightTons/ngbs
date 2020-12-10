@@ -76,7 +76,7 @@ public class LostAndFoundServiceImpl implements ILostAndFoundService {
             keyword = new StringBuilder().append("%").append(keyword).append("%").toString();
         }
         PageHelper.startPage(pageNum, pageSize);
-        List<LostAndFount> lostAndFountList = lostAndFountMapper.selectByKeyword(keyword);
+        List<LostAndFount> lostAndFountList = lostAndFountMapper.selectByKeyword(StringUtils.isBlank(keyword)?null:keyword);
         PageInfo pageInfo = new PageInfo(lostAndFountList);
 
         return ServerResponse.createBySuccess(pageInfo);
