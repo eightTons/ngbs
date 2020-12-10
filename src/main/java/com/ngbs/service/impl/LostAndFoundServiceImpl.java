@@ -40,6 +40,9 @@ public class LostAndFoundServiceImpl implements ILostAndFoundService {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         LostAndFount lostAndFount = lostAndFountMapper.selectByPrimaryKey(id);
+        if (lostAndFount == null) {
+            return ServerResponse.createByErrorMessage("该失物招领信息不存在");
+        }
         if (!userId.equals(lostAndFount.getUserId())) {
             return ServerResponse.createByErrorMessage("用户无权限删除");
         }

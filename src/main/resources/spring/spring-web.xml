@@ -19,6 +19,20 @@
         <property name="prefix" value="/WEB-INF/html"></property>
         <property name="suffix" value=".html"></property>
     </bean>
+
+
+    <mvc:interceptors>
+        <!-- 如果在interceptors中配置bean,那么所有定义在这里的bean都会被拦截-->
+        <!--<bean></bean>-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <!--过滤登陆死循环情况-->
+            <mvc:exclude-mapping path="/card/**"/>
+            <mvc:exclude-mapping path="/user/**"/>
+            <bean class="com.ngbs.common.interceptor.AuthorityInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!--&lt;!&ndash;文件上传解析器&ndash;&gt;-->
     <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
         <!--<property name="defaultEncoding" value="utf-8"></property>-->

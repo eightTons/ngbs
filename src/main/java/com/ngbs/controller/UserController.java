@@ -54,7 +54,6 @@ public class UserController {
         }
 
         return "redirect:/card/publishcard";
-//        return "/card/publishcard";
 
     }
 
