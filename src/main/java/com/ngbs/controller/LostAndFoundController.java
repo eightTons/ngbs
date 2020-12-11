@@ -33,22 +33,31 @@ public class LostAndFoundController {
     @RequestMapping(value = "add.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse add(HttpServletRequest httpServletRequest, LostAndFount lostAndFount) {
+        String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+        String userJsonStr = RedisPoolUtil.get(loginToken);
+        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
 
-        return iLostAndFoundService.add(1, lostAndFount);
+        return iLostAndFoundService.add(user.getId(), lostAndFount);
     }
 
     @RequestMapping(value = "delete.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse delete(HttpServletRequest httpServletRequest, Integer id) {
+        String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+        String userJsonStr = RedisPoolUtil.get(loginToken);
+        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
 
-        return iLostAndFoundService.delete(1, id);
+        return iLostAndFoundService.delete(user.getId(), id);
     }
 
     @RequestMapping(value = "update.do", method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse update(HttpServletRequest httpServletRequest, LostAndFount lostAndFount) {
+        String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+        String userJsonStr = RedisPoolUtil.get(loginToken);
+        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
 
-        return iLostAndFoundService.update(1, lostAndFount);
+        return iLostAndFoundService.update(user.getId(), lostAndFount);
     }
 
     @RequestMapping(value = "select.do", method = RequestMethod.GET)
