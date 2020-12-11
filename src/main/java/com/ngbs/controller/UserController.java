@@ -48,7 +48,6 @@ public class UserController {
 
         ServerResponse<User> response = iUserService.login(username, password);
         if (response.isSuccess()) {
-//            session.setAttribute(Const.CURRENT_USER, response.getData());
             CookieUtil.writeLoginToken(httpServletResponse, session.getId());
             RedisPoolUtil.setEx(session.getId(), JsonUtil.obj2String(response.getData()), Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
         }
@@ -64,7 +63,7 @@ public class UserController {
                            @RequestParam(value = "second_password") String secondPassword,
                            HttpSession httpSession, HttpServletResponse httpServletResponse) throws IOException {
 
-        if(!firstPassword.equals(secondPassword)){
+        if (!firstPassword.equals(secondPassword)) {
             return "redirect:/user/register";
         }
 
@@ -73,14 +72,14 @@ public class UserController {
         user.setPassword(firstPassword);
         ServerResponse<String> response = iUserService.register(user);
 
-        if(response.isSuccess()){
+        if (response.isSuccess()) {
             return "redirect:/user/login";
         }
         return "redirect:/user/register";
     }
 
     @RequestMapping(value = "logout.do", method = RequestMethod.GET)
-    public String longout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+    public String longout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         CookieUtil.delLoginToken(httpServletRequest, httpServletResponse);
         RedisPoolUtil.del(loginToken);

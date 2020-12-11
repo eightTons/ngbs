@@ -35,7 +35,7 @@ public class LostAndFoundController {
     public ServerResponse add(HttpServletRequest httpServletRequest, LostAndFount lostAndFount) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iLostAndFoundService.add(user.getId(), lostAndFount);
     }
@@ -45,7 +45,7 @@ public class LostAndFoundController {
     public ServerResponse delete(HttpServletRequest httpServletRequest, Integer id) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iLostAndFoundService.delete(user.getId(), id);
     }
@@ -55,7 +55,7 @@ public class LostAndFoundController {
     public ServerResponse update(HttpServletRequest httpServletRequest, LostAndFount lostAndFount) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iLostAndFoundService.update(user.getId(), lostAndFount);
     }

@@ -25,39 +25,7 @@ public class AuthorityInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info(("preHandle"));
-//        //请求中controller的方法名
-//        HandlerMethod handlerMethod = (HandlerMethod) handler;
-//        //解析handlermethod
-//
-//        //获取方法名
-//        String methodName = handlerMethod.getMethod().getName();
-//        //获取类名,simplename是获取名字不带包名，name是带包名的
-//        String className = handlerMethod.getBean().getClass().getSimpleName();
-//        //解析参数
-//        StringBuffer stringBuffer = new StringBuffer();
-//        Map paramMap = request.getParameterMap();
-//        Iterator it = paramMap.entrySet().iterator();
-//        while ((it.hasNext())) {
-//
-//            Map.Entry entry = (Map.Entry) it.next();
-//            String mapKey = (String) entry.getKey();
-//            String mapValue = "";
-//
-//            //request的这个参数map的value返回的是一个String[]
-//            Object obj = entry.getValue();
-//            if (obj instanceof String[]) {
-//                String[] strs = (String[]) obj;
-//                mapValue = Arrays.toString(strs);
-//            }
-//            stringBuffer.append(mapKey).append("=").append(mapValue);
-//        }
-//
-//        //判断登陆，如果是登陆就放行
-//        if (StringUtils.equals(className, UserController.class.getSimpleName()) && StringUtils.equals(methodName, "login.do")) {
-//            //登陆的时候不能把参数的日志也打上，如果日志泄露，账号密码就会泄露
-//            log.info("权限拦截器拦截到的请求 className{} methodName{}", className, methodName);
-//            return true;
-//        }
+
         //判断登陆
         String loginToken = CookieUtil.readLoginToken(request);
         User user;

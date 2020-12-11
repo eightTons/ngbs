@@ -41,11 +41,11 @@ public class CardController {
     @ResponseBody
     public ServerResponse add(HttpServletRequest httpServletRequest, Card card) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
-        if(StringUtils.isEmpty(loginToken)){
+        if (StringUtils.isEmpty(loginToken)) {
             return ServerResponse.createByErrorMessage("用户未登录，无法获取当前用户的信息");
         }
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
@@ -59,20 +59,20 @@ public class CardController {
     @ResponseBody
     public ServerResponse<PageInfo> list(HttpSession session,
                                          @RequestParam(value = "search", defaultValue = "") String search,
-                                         @RequestParam(value = "searchSchool")String[] searchSchool,
-                                         @RequestParam(value = "searchLocation")String[] searchLocation,
+                                         @RequestParam(value = "searchSchool") String[] searchSchool,
+                                         @RequestParam(value = "searchLocation") String[] searchLocation,
                                          @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
                                          @RequestParam(value = "pageSize", defaultValue = "5") int pageSize) {
 
         List<String> schoolList = new ArrayList<>();
         List<String> locationList = new ArrayList<>();
-        if(searchSchool.length>0){
-            for(String item : searchSchool){
+        if (searchSchool.length > 0) {
+            for (String item : searchSchool) {
                 schoolList.add(item);
             }
         }
-        if(searchLocation.length>0){
-            for(String item : searchLocation){
+        if (searchLocation.length > 0) {
+            for (String item : searchLocation) {
                 locationList.add(item);
             }
         }

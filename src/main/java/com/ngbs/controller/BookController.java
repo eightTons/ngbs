@@ -28,7 +28,7 @@ public class BookController {
     public ServerResponse add(HttpServletRequest httpServletRequest, Book book) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iBookService.add(user.getId(), book);
     }
@@ -38,7 +38,7 @@ public class BookController {
     public ServerResponse delete(HttpServletRequest httpServletRequest, Integer id) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iBookService.delete(user.getId(), id);
     }
@@ -48,7 +48,7 @@ public class BookController {
     public ServerResponse update(HttpServletRequest httpServletRequest, Book book) {
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
         String userJsonStr = RedisPoolUtil.get(loginToken);
-        User user  = JsonUtil.string2Obj(userJsonStr, User.class);
+        User user = JsonUtil.string2Obj(userJsonStr, User.class);
 
         return iBookService.update(user.getId(), book);
     }
