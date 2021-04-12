@@ -2,6 +2,7 @@ package com.ngbs.service;
 
 import com.github.pagehelper.PageInfo;
 import com.ngbs.common.ServerResponse;
+import com.ngbs.pojo.Book;
 import com.ngbs.pojo.Card;
 
 import java.util.List;
@@ -11,6 +12,12 @@ public interface ICardService {
 
     // 增加校卡
     ServerResponse add(Integer userId, Card card);
+
+    // 删除校卡
+    ServerResponse delete(Integer userId, Integer id);
+
+    // 修改校卡
+    ServerResponse update(Integer userId, Card card);
 
     // 根据条件查找校卡
     ServerResponse<PageInfo> getCardByKeywordAndSchoolAndLocation(String keyword, List<String> schoolList, List<String> locationList, int pageNum, int pageSize);

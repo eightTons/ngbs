@@ -37,6 +37,16 @@ public class CardServiceImpl implements ICardService {
         return ServerResponse.createByErrorMessage("发布校卡失败");
     }
 
+    @Override
+    public ServerResponse delete(Integer userId, Integer id) {
+        return null;
+    }
+
+    @Override
+    public ServerResponse update(Integer userId, Card card) {
+        return null;
+    }
+
     public ServerResponse<PageInfo> getCardByKeywordAndSchoolAndLocation(String keyword, List<String> schoolList, List<String> locationList, int pageNum, int pageSize){
         if(StringUtils.isNotBlank(keyword)){
             keyword = new StringBuilder().append("%").append(keyword).append("%").toString();
